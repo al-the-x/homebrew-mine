@@ -1,17 +1,11 @@
 require "formula"
 
 class ShinyAndGnu < Formula
-  homepage "https://github.com/al-the-x/homebrew-mine/"
-  url homepage, :using => :git
-  sha1 ""
-
-  version 'master'
-
-  head homepage
+  homepage "https://github.com/al-the-x/homebrew-mine"
+  head homepage + '.git'
 
   # GNU utils make MacOSX feel less like BSD...
   depends_on 'coreutils'
-  # depends_on 'binutils'
   depends_on 'diffutils'
   depends_on 'findutils' => '--default-names'
   depends_on 'gawk'
@@ -38,7 +32,7 @@ class ShinyAndGnu < Formula
 
   # It's complicated...
   option 'with-gdb', 'If you want to replace `gdb`, see `brew info gdb`'
-  depends_on 'gdb' if build.with? 'gdb' ## It's complicated...
+  depends_on 'gdb' if build.with? 'gdb'
 
   # May cause linking errors. Use with caution!
   option 'with-m4', 'Known to cause problems, see `brew info m4`'
@@ -55,5 +49,6 @@ class ShinyAndGnu < Formula
   end
 
   test do ## TODO!
+    opoo 'Maybe one day this will do something...'
   end
 end
