@@ -1,6 +1,10 @@
 require "formula"
 
 class ShinyAndGnu < Formula
+  desc %{
+    Metapackage that installs various GNU toolkits that are missing from Mac OSX
+    or have same-named equivalents from BSD that don't work the same.
+  }
   homepage "https://github.com/al-the-x/homebrew-mine"
   head homepage + '.git'
 
@@ -45,7 +49,10 @@ class ShinyAndGnu < Formula
   depends_on 'unzip'
 
   def install
-    opoo 'Enjoy your GNU environment!'
+    touch 'installed'
+    File.write('installed', desc)
+    prefix.install 'installed'
+    ohai 'Enjoy your GNU environment!'
   end
 
   test do ## TODO!
